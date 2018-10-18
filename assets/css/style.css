@@ -32,11 +32,21 @@ body {
     animation-fill-mode: forwards;
 }
 
+.character[isYourCharacter="1"] {
+    border-color: green;
+}
+
+.character[isYourCharacter="0"] {
+    border-color: red;
+}
+
 /*Modify the character health text so it's aligned toward the bottom of the image*/
 .characterHealth {
     position: absolute;
     left: 0;
     right: 0;
     bottom: 10px;
+    background-color: black;
+    opacity: .7;
 }
 

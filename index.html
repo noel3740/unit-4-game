@@ -11,65 +11,70 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <main class="container">
+    <main class="container text-white">
 
-    <!--The header div-->
-    <header class="jumbotron-fluid text-white">
-        <h1 class="display-4 text-center">Star Wars RPG</h1>
-    </header>
+        <!--The header div-->
+        <header class="jumbotron-fluid">
+            <h1 class="display-4 text-center">Star Wars RPG</h1>
+        </header>
 
-    <!--Select Character Section-->
-    <section class="row">
+        <!--Select Character Section-->
+        <section class="row selectCharacter">
 
-            <div id="darthMaulDiv" class="card bg-dark text-white text-center character clickable">
-                <img class="card-img characterImg" src="assets/images/DarthMaul.jpg" alt="Card image">
-                <div class="card-img-overlay">
-                    <h5 class="card-title characterName">Darth Maul</h5>
-                    <p class="card-text align-bottom characterHealth">Health: <span></span></p>
+                <div id="darthMaulDiv" class="card bg-dark text-center character clickable">
+                    <img class="card-img characterImg" src="assets/images/DarthMaul.jpg" alt="Card image">
+                    <div class="card-img-overlay">
+                        <h5 class="card-title characterName">Darth Maul</h5>
+                        <p class="card-text align-bottom characterHealth">Health: <span>100</span></p>
+                    </div>
                 </div>
-            </div>
 
-            <div id="darthSidDiv" class="card bg-dark text-white text-center character clickable">
-                <img class="card-img characterImg" src="assets/images/DarthSidious.jpg" alt="Card image">
-                <div class="card-img-overlay">
-                    <h5 class="card-title characterName">Darth Sidious</h5>
-                    <p class="card-text align-bottom characterHealth">Health: <span></span></p>
+                <div id="darthSidDiv" class="card bg-dark text-center character clickable">
+                    <img class="card-img characterImg" src="assets/images/DarthSidious.jpg" alt="Card image">
+                    <div class="card-img-overlay">
+                        <h5 class="card-title characterName">Darth Sidious</h5>
+                        <p class="card-text align-bottom characterHealth">Health: <span>150</span></p>
+                    </div>
                 </div>
-            </div>
 
-            <div id="lukeDiv" class="card bg-dark text-white text-center character clickable">
-                <img class="card-img characterImg" src="assets/images/Luke.jpg" alt="Card image">
-                <div class="card-img-overlay">
-                    <h5 class="card-title characterName">Luke Skywalker</h5>
-                    <p class="card-text align-bottom characterHealth">Health: <span></span></p>
+                <div id="lukeDiv" class="card bg-dark text-center character clickable">
+                    <img class="card-img characterImg" src="assets/images/Luke.jpg" alt="Card image">
+                    <div class="card-img-overlay">
+                        <h5 class="card-title characterName">Luke Skywalker</h5>
+                        <p class="card-text align-bottom characterHealth">Health: <span>100</span></p>
+                    </div>
                 </div>
-            </div>
 
-            <div id="obiWanDiv" class="card bg-dark text-white text-center character clickable">
-                <img class="card-img characterImg" src="assets/images/ObiWan.jpg" alt="Card image">
-                <div class="card-img-overlay">
-                    <h5 class="card-title characterName">Obi-Wan Kenobi</h5>
-                    <p class="card-text align-bottom characterHealth">Health: <span></span></p>
+                <div id="obiWanDiv" class="card bg-dark text-center character clickable">
+                    <img class="card-img characterImg" src="assets/images/ObiWan.jpg" alt="Card image">
+                    <div class="card-img-overlay">
+                        <h5 class="card-title characterName">Obi-Wan Kenobi</h5>
+                        <p class="card-text align-bottom characterHealth">Health: <span>120</span></p>
+                    </div>
                 </div>
-            </div>
 
-    </section>
+        </section>
 
-    <!--Your character section-->
-    <section>
-        <h2 class="text-white">Your character</h2>
-        <div class="yourCharacter">
+        <!--Your character section-->
+        <section>
+            <h2>Your character</h2>
+            <div class="row yourCharacter"></div>
+        </section>
 
-        </div>
-    </section>
+        <!--Enemies section-->
+        <section>
+            <h2>Enemies Available to Attack</h2>
+            <div class="row enemies"></div>
+        </section>
 
-    <!--Enemies section-->
-    <section>
-        <h2 class="text-white">Enemies Available to Attack</h2>
-        <div class="enemies">
-
-        </div>
-    </section>
+        <!--Fight section-->
+        <section>
+            <h2 class="display-4">Fight Section</h2>
+            <h3>Defender</h3>
+            <div class="defender"></div>
+            <button id="attackButton" type="button" class="btn btn-primary" disabled>Attack</button>
+            <button id="restartButton" type="button" class="btn btn-danger">Restart</button>        
+        </section>
 
     </main>
 

@@ -1,92 +1,79 @@
-var selectedCharacterDiv;
+var yourCharacterDiv;
+var defenderCharacterDiv;
 
-var obiWan = {
-    name: "Obi-Wan Kenobi",
-    healthPoints: 120,
-    attackPower: 6,
-    counterAttackPower: 20,
-    image: 'ObiWan.jpg',
-    isYourCharacter: false
-}
-
-var luke = {
-    name: "Luke Skywalker",
-    healthPoints: 120,
-    attackPower: 6,
-    counterAttackPower: 20,
-    image: 'Luke.jpg',
-    isYourCharacter: false
-}
-
-/* var characters = [];
-
-function initializeVariables() {
-    $(".character").each(function(index, characterCardDiv) {
-        characters.push(characterCardDiv);
-    });
-} 
-initializeVariables();
-*/
 
 function characterChosen (characterDiv) {
+    /*Set the selected character global variable to the current div*/
+    yourCharacterDiv = characterDiv;
+
+    /*Add isYourCharacter attribute to the characterDiv*/
+    characterDiv.attr("isYourCharacter", "1");
+
     /*Move the selected character div from it's parent to the .yourCharacter div*/
     characterDiv.detach();
     $(".yourCharacter").append(characterDiv);
 
-    /*Set the selected character global variable to the current div*/
-    selectedCharacterDiv = characterDiv;
-
     /*Remove the clickable class from the selected character div*/
     characterDiv.removeClass("clickable");
+
+    /*Move other characters to the enemies div */
+    $(".character[isYourCharacter!='1']").each(function(){
+        var enemyDiv = $(this).detach();
+        enemyDiv.attr("isYourCharacter", "0");
+        $(".enemies").append(enemyDiv);
+    });
 }
 
+function addDefender (enemyCharacterDiv) {
+    
+    defenderCharacterDiv = enemyCharacterDiv;
+
+    enemyCharacterDiv.detach();
+    $(".defender").append(enemyCharacterDiv);
+
+    enemyCharacterDiv.removeClass("clickable");
+
+    /* Remove clickable class from all enemy divs */
+    $(".character[isYourCharacter!='1']").removeClass("clickable");
+
+    /* Enable attack button */
+    $("#attackButton").prop('disabled', false);
+}
+
+function restart () {
+    console.log("got here");
+
+    /* Reset global variables */
+    yourCharacterDiv = undefined;
+    defenderCharacterDiv = undefined;
+
+    /* Disable the attack button */
+    $("#attackButton").prop('disabled', true);
+
+    $(".character").each(function() {
+        /* Move the characters back to the character select div */
+        var characterDiv = $(this).detach();
+        $(".selectCharacter").append(characterDiv);
+
+        /* Add the clickable class back */
+        characterDiv.addClass("clickable");
+
+        /* Remove the isYourCharacter attribute*/
+        characterDiv.removeAttr("isYourCharacter");
+    });
+}
+
+$("#restartButton").on("click", restart);
 
 $(".character").on("click", function(event){
-    if (!selectedCharacterDiv) {
-        characterChosen($(event.currentTarget));
+    var characterDiv = $(this);
+
+    if (!yourCharacterDiv) {
+        characterChosen(characterDiv);
+    }
+    else if (characterDiv &&
+        characterDiv.hasClass("clickable")) {
+        addDefender(characterDiv);
     }
 });
 
-
-/* var character = [obiWan, luke];
-
-var characterCardHTML = 
-'<div class="card bg-dark text-white text-center character clickable"> \
-    <img class="card-img characterImg" src="assets/images/DarthSidious.jpg" alt="Card image"> \
-    <div class="card-img-overlay"> \
-        <h5 class="card-title characterName">Darth Sidious</h5> \
-        <p class="card-text align-bottom characterHealth">Health: <span></span></p> \
-    </div> \
-</div>'
-
- function createCharacterDivs () {
-    $.each(characters, function(index, character){
-        var characterCardDiv = $("<div>");
-        characterCardDiv.addClass("card bg-dark text-white text-center character clickable");
-        
-        var characterImg = $("<img>");
-        characterImg.attr("src", "assets/images/" + character.image);
-        characterImg.attr("alt", character.name + " image");
-        characterImg.addClass("card-img characterImg");
-        characterCardDiv.append(characterImg);
-
-        var cardOverlayDiv = $("<div>");
-        cardOverlayDiv.addClass("card-img-overlay");
-
-        var cardTitle = $("<h5>");
-        cardTitle.addClass("card-title characterName");
-        cardTitle.text(character.name);
-        cardOverlayDiv.append(cardTitle);
-
-        var cardHealth = $("<p>");
-        cardHealth.addClass("card-text align-bottom characterHealth");
-        var cardHealthSpan = $("")
-
-
-
-        $('#characterSelect').append(characterImg);
-    });
-}
- 
-createCharacterDivs();
- */
