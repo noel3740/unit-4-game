@@ -5,13 +5,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Star Wars RPG Game</title>
-    <!--Reset CSS-->
-    <link rel="stylesheet" href="assets/css/reset.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">    
     <!--Custom CSS-->
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    
+    <main class="container">
+
+    <!--The header div-->
+    <header class="jumbotron-fluid text-white">
+        <h1 class="display-4 text-center">Star Wars RPG</h1>
+    </header>
+
+    <!--Select Character Section-->
+    <section class="row">
+
+            <div id="darthMaulDiv" class="card bg-dark text-white text-center character clickable">
+                <img class="card-img characterImg" src="assets/images/DarthMaul.jpg" alt="Card image">
+                <div class="card-img-overlay">
+                    <h5 class="card-title characterName">Darth Maul</h5>
+                    <p class="card-text align-bottom characterHealth">Health: <span></span></p>
+                </div>
+            </div>
+
+            <div id="darthSidDiv" class="card bg-dark text-white text-center character clickable">
+                <img class="card-img characterImg" src="assets/images/DarthSidious.jpg" alt="Card image">
+                <div class="card-img-overlay">
+                    <h5 class="card-title characterName">Darth Sidious</h5>
+                    <p class="card-text align-bottom characterHealth">Health: <span></span></p>
+                </div>
+            </div>
+
+            <div id="lukeDiv" class="card bg-dark text-white text-center character clickable">
+                <img class="card-img characterImg" src="assets/images/Luke.jpg" alt="Card image">
+                <div class="card-img-overlay">
+                    <h5 class="card-title characterName">Luke Skywalker</h5>
+                    <p class="card-text align-bottom characterHealth">Health: <span></span></p>
+                </div>
+            </div>
+
+            <div id="obiWanDiv" class="card bg-dark text-white text-center character clickable">
+                <img class="card-img characterImg" src="assets/images/ObiWan.jpg" alt="Card image">
+                <div class="card-img-overlay">
+                    <h5 class="card-title characterName">Obi-Wan Kenobi</h5>
+                    <p class="card-text align-bottom characterHealth">Health: <span></span></p>
+                </div>
+            </div>
+
+    </section>
+
+    <!--Your character section-->
+    <section>
+        <h2 class="text-white">Your character</h2>
+        <div class="yourCharacter">
+
+        </div>
+    </section>
+
+    <!--Enemies section-->
+    <section>
+        <h2 class="text-white">Enemies Available to Attack</h2>
+        <div class="enemies">
+
+        </div>
+    </section>
+
+    </main>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <!--Custom javascript files-->
     <script src="assets/javascript/game.js"></script>
 </body>

@@ -1,0 +1,42 @@
+/*body element selector*/
+body {
+    background-image: url('../images/StarWarsBackground.jpg'); /*change the background image*/
+    background-position: center; /*center the image on the screen*/
+    background-attachment: fixed; /*fix the image to the viewport*/
+    background-repeat: no-repeat; /*Do not repeat the background image*/
+    background-size: cover;  /*scale the background image to cover the whole screen*/
+}
+
+/*Keyframe definition for opacity chagne*/
+@keyframes changeOpacity {
+    0%   { opacity: 1; }
+    100% { opacity: .5; }
+  }
+
+/*character class*/
+.character {
+    height: 150px;
+    width: 150px;
+    margin: 5px;
+    border: 1px yellow solid;
+}
+
+/*change pointer if the character is clickable*/
+.character.clickable {
+    cursor: pointer;
+}
+
+/*Animate when the user hovers over a character if the character is clickable*/
+.character.clickable:hover {
+    animation: changeOpacity 1s 1;
+    animation-fill-mode: forwards;
+}
+
+/*Modify the character health text so it's aligned toward the bottom of the image*/
+.characterHealth {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 10px;
+}
+
