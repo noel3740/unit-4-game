@@ -1,3 +1,9 @@
+/*Font Link*/
+@font-face {
+    font-family: "starWarsFont";
+    src: url("../fonts/Starjhol.ttf");
+}
+
 /*body element selector*/
 body {
     background-image: url('../images/StarWarsBackground.jpg'); /*change the background image*/
@@ -11,6 +17,7 @@ body {
 
 /*Header element selector*/
 header {
+    font-family: "starWarsFont";
     color: yellow; /*Change text color to yellow*/
 }
 
@@ -22,7 +29,7 @@ header {
 
 /*character class*/
 .character {
-    height: 150px;
+    /* height: 150px; */
     width: 150px;
     margin: 5px;
     border: 1px yellow solid;

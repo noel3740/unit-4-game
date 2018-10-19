@@ -5,6 +5,7 @@ var resultsDiv = $(".result");
 var attackButton = $("#attackButton");
 var battleSectionDiv = $(".battleSection");
 var selectCharacterSectionDiv = $(".selectCharacter");
+var winAudio = document.getElementById("winAudio");
 
 //Function will run when character is chosen
 function characterChosen (characterDiv) {
@@ -72,6 +73,11 @@ function restart () {
     //Clear the result div
     resultsDiv.text("");
 
+    //Pause the win audio
+    winAudio.pause(); 
+    //Set the current time on the win audio back to 0 so if the user wins again the audio plays from the beginning. 
+    winAudio.currentTime = 0; 
+
     //Loop through all the characters
     $(".character").each(function() {
         //Move the characters back to the character select div 
@@ -124,30 +130,34 @@ function attack() {
 
     //Subtract from the defender/enemy health the amount of current attack power the user's character has
     defenderHealth -= yourAttackPower;
-    //Subtract from the user's health the amount of counter attack power the defender/enemy has
-    yourHealth -= defenderCounterAttackPower;
-
-    //Set the defender and user's character health to 0 if either is less than 0
-    if (defenderHealth < 0) { defenderHealth = 0; }
-    if (yourHealth < 0 ) { yourHealth = 0; }
-
-    //Set the current health points attributes for both user's character and defender's character
-    setCurrentHealthPoints(yourCharacterDiv, yourHealth);
-    setCurrentHealthPoints(defenderCharacterDiv, defenderHealth);
 
     //Increase user's attack power by the amount of the user's character original attack power and set the character div attribute value to the value
     yourAttackPower += yourOriginalAttackPower;
     yourCharacterDiv.attr("currentAttackPower", yourAttackPower);
 
-    //If user's character health is 0 and the defender's health is greater than 0 
-    //or both the user's character health and defender's character health are both 0 then the user lost
-    if (yourHealth === 0 && defenderHealth >= 0) {
-        playerLost();
-    }
     //If the user's character health is greater than 0 and the defender's health is 0 or less then the user defeated the enemy/defender
-    else if (yourHealth > 0 && defenderHealth <= 0) {
+    if (yourHealth > 0 && defenderHealth <= 0) {
         playerDefeatedEnemy(defenderName);
     }    
+    //If the user's charcter did not win then allow the enemy to counter attack
+    else {
+        //Subtract from the user's health the amount of counter attack power the defender/enemy has
+        yourHealth -= defenderCounterAttackPower;
+
+        //If user's character health is less than or equal 0 and the defender's health 
+        //is greater than or equal 0 then the user lost
+        if (yourHealth <= 0 && defenderHealth >= 0) {
+            playerLost();
+        }
+    }
+
+    //Set the user's or defender's character health to 0 if either is less than 0
+    if (yourHealth < 0 ) { yourHealth = 0; }
+    if (defenderHealth < 0) { defenderHealth = 0; }
+
+    //Set the current health points attributes for both user's character and defender's character and display on character card
+    setCurrentHealthPoints(yourCharacterDiv, yourHealth);
+    setCurrentHealthPoints(defenderCharacterDiv, defenderHealth);
 }
 
 //Function to be run when the enemy has been defeated
@@ -166,6 +176,8 @@ function playerDefeatedEnemy(defenderName) {
     if (undefeatedEnemies.length <= 0) {
         //Display to the user that they won
         resultsDiv.text("You Won!! Game Over!!");
+        //Play win audio
+        winAudio.play();
     }
     //There are still enemies to be defeated
     else {

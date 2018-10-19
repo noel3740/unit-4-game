@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Star Wars RPG Game</title>
+    <!--Theme color for browser tab-->
+    <meta name="theme-color" content="black">
+    <!--Favicon-->
+    <link rel="icon" sizes="192x192" href="assets/images/favIcon.ico">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">    
     <!--Custom CSS-->
@@ -23,34 +27,34 @@
 
                 <h2 class="w-100">Choose your character</h2>
 
-                <div class="card bg-dark text-center character clickable" healthPoints="100" attackPower="7" counterAttackPower="3">
-                    <img class="card-img characterImg" src="assets/images/DarthMaul.jpg" alt="Card image">
-                    <div class="card-img-overlay">
-                        <h5 class="card-title characterName">Darth Maul</h5>
+                <div class="card bg-dark text-center character clickable" healthPoints="180" attackPower="2" counterAttackPower="25">
+                    <img class="card-img characterImg" src="assets/images/DarthVader.jpg" alt="Card image">
+                    <div class="card-img-overlay p-1">
+                        <h6 class="card-title characterName">Darth Vader</h5>
                         <p class="card-text align-bottom characterHealth">Health: <span></span></p>
                     </div>
                 </div>
 
-                <div class="card bg-dark text-center character clickable" healthPoints="402" attackPower="3" counterAttackPower="7">
-                    <img class="card-img characterImg" src="assets/images/DarthSidious.jpg" alt="Card image">
-                    <div class="card-img-overlay">
-                        <h5 class="card-title characterName">Darth Sidious</h5>
+                <div class="card bg-dark text-center character clickable" healthPoints="150" attackPower="3" counterAttackPower="20">
+                    <img class="card-img characterImg" src="assets/images/BobaFett.jpg" alt="Card image">
+                    <div class="card-img-overlay p-1">
+                        <h6 class="card-title characterName">Boba Fett</h5>
                         <p class="card-text align-bottom characterHealth">Health: <span></span></p>
                     </div>
                 </div>
 
-                <div class="card bg-dark text-center character clickable" healthPoints="204" attackPower="6" counterAttackPower="4">
-                    <img class="card-img characterImg" src="assets/images/Luke.jpg" alt="Card image">
-                    <div class="card-img-overlay">
-                        <h5 class="card-title characterName">Luke Skywalker</h5>
+                <div class="card bg-dark text-center character clickable" healthPoints="100" attackPower="10" counterAttackPower="5">
+                    <img class="card-img characterImg" src="assets/images/Rey.jpg" alt="Card image">
+                    <div class="card-img-overlay p-1">
+                        <h6 class="card-title characterName">Rey</h5>
                         <p class="card-text align-bottom characterHealth">Health: <span></span></p>
                     </div>
                 </div>
 
-                <div class="card bg-dark text-center character clickable" healthPoints="303" attackPower="5" counterAttackPower="5">
-                    <img class="card-img characterImg" src="assets/images/ObiWan.jpg" alt="Card image">
-                    <div class="card-img-overlay">
-                        <h5 class="card-title characterName">Obi-Wan Kenobi</h5>
+                <div class="card bg-dark text-center character clickable" healthPoints="120" attackPower="8" counterAttackPower="13">
+                    <img class="card-img characterImg" src="assets/images/Yoda.jpg" alt="Card image">
+                    <div class="card-img-overlay p-1">
+                        <h6 class="card-title characterName">Yoda</h5>
                         <p class="card-text align-bottom characterHealth">Health: <span></span></p>
                     </div>
                 </div>
@@ -97,6 +101,12 @@
         </section>
 
     </main>
+
+    <!--Audio Section-->
+    <audio id="winAudio" loop>
+        <source src="assets/sounds/Star_Wars_Main_Title.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
