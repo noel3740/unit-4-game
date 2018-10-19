@@ -7,6 +7,11 @@ body {
     background-size: cover;  /*scale the background image to cover the whole screen*/
 }
 
+/*Header element selector*/
+header {
+    color: yellow; /*Change text color to yellow*/
+}
+
 /*Keyframe definition for opacity chagne*/
 @keyframes changeOpacity {
     0%   { opacity: 1; }
@@ -32,10 +37,12 @@ body {
     animation-fill-mode: forwards;
 }
 
+/*character class where isYourCharacter is 1*/
 .character[isYourCharacter="1"] {
     border-color: green;
 }
 
+/*character class where isYourCharacter is 0 (aka it's an enemy)*/
 .character[isYourCharacter="0"] {
     border-color: red;
 }
@@ -50,3 +57,12 @@ body {
     opacity: .7;
 }
 
+/*defender or result class*/
+.defender, .result {
+    display: inline-block; 
+}
+
+/*character class where isDefeated attribute is 1*/
+.character[isDefeated="1"] {
+    display: none; /*hide the div*/
+}

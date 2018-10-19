@@ -15,65 +15,85 @@
 
         <!--The header div-->
         <header class="jumbotron-fluid">
-            <h1 class="display-4 text-center">Star Wars RPG</h1>
+            <h1 class="display-3 text-center">Star Wars RPG</h1>
         </header>
 
         <!--Select Character Section-->
-        <section class="row selectCharacter">
+        <section class="row justify-content-center text-center selectCharacter">
 
-                <div id="darthMaulDiv" class="card bg-dark text-center character clickable">
+                <h2 class="w-100">Choose your character</h2>
+
+                <div class="card bg-dark text-center character clickable" healthPoints="100" attackPower="7" counterAttackPower="3">
                     <img class="card-img characterImg" src="assets/images/DarthMaul.jpg" alt="Card image">
                     <div class="card-img-overlay">
                         <h5 class="card-title characterName">Darth Maul</h5>
-                        <p class="card-text align-bottom characterHealth">Health: <span>100</span></p>
+                        <p class="card-text align-bottom characterHealth">Health: <span></span></p>
                     </div>
                 </div>
 
-                <div id="darthSidDiv" class="card bg-dark text-center character clickable">
+                <div class="card bg-dark text-center character clickable" healthPoints="402" attackPower="3" counterAttackPower="7">
                     <img class="card-img characterImg" src="assets/images/DarthSidious.jpg" alt="Card image">
                     <div class="card-img-overlay">
                         <h5 class="card-title characterName">Darth Sidious</h5>
-                        <p class="card-text align-bottom characterHealth">Health: <span>150</span></p>
+                        <p class="card-text align-bottom characterHealth">Health: <span></span></p>
                     </div>
                 </div>
 
-                <div id="lukeDiv" class="card bg-dark text-center character clickable">
+                <div class="card bg-dark text-center character clickable" healthPoints="204" attackPower="6" counterAttackPower="4">
                     <img class="card-img characterImg" src="assets/images/Luke.jpg" alt="Card image">
                     <div class="card-img-overlay">
                         <h5 class="card-title characterName">Luke Skywalker</h5>
-                        <p class="card-text align-bottom characterHealth">Health: <span>100</span></p>
+                        <p class="card-text align-bottom characterHealth">Health: <span></span></p>
                     </div>
                 </div>
 
-                <div id="obiWanDiv" class="card bg-dark text-center character clickable">
+                <div class="card bg-dark text-center character clickable" healthPoints="303" attackPower="5" counterAttackPower="5">
                     <img class="card-img characterImg" src="assets/images/ObiWan.jpg" alt="Card image">
                     <div class="card-img-overlay">
                         <h5 class="card-title characterName">Obi-Wan Kenobi</h5>
-                        <p class="card-text align-bottom characterHealth">Health: <span>120</span></p>
+                        <p class="card-text align-bottom characterHealth">Health: <span></span></p>
                     </div>
                 </div>
 
         </section>
 
-        <!--Your character section-->
-        <section>
-            <h2>Your character</h2>
-            <div class="row yourCharacter"></div>
-        </section>
+        <!--Battle Section-->
+        <section class="battleSection">
+            
+            <h2 class="display-4 text-center">Battle</h2>
 
-        <!--Enemies section-->
-        <section>
-            <h2>Enemies Available to Attack</h2>
-            <div class="row enemies"></div>
-        </section>
+            <div class="row pb-4">
 
-        <!--Fight section-->
-        <section>
-            <h2 class="display-4">Fight Section</h2>
-            <h3>Defender</h3>
-            <div class="defender"></div>
-            <button id="attackButton" type="button" class="btn btn-primary" disabled>Attack</button>
-            <button id="restartButton" type="button" class="btn btn-danger">Restart</button>        
+                <!--Your character section-->
+                <section class="col-sm-12 col-md-4 text-center">
+                    <h2>Your character</h2>
+                    <div class="row justify-content-center yourCharacter"></div>
+                </section>
+
+                <!--VS middle section with status-->
+                <section class="col-sm-12 col-md-4 text-center">
+                    <p class="display-1">VS</p>
+                    <div class="mt-3">
+                        <button id="attackButton" type="button" class="btn btn-primary btn-lg mr-3" disabled>Attack</button>
+                        <button id="restartButton" type="button" class="btn btn-danger btn-lg">Restart</button>        
+                    </div>
+                    <div class="result"></div>
+                </section>
+
+                <!--Enemy/Defender section-->
+                <section class="col-sm-12 col-md-4 text-center">
+                    <h2>Enemy</h2>
+                    <div class="justify-content-center defender"></div>
+                </section>
+
+            </div>
+
+            <!--Enemies section-->
+            <section class="text-center">
+                <h2>Select enemy to Attack</h2>
+                <div class="row justify-content-center enemies"></div>
+            </section>
+
         </section>
 
     </main>
