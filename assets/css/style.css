@@ -5,6 +5,8 @@ body {
     background-attachment: fixed; /*fix the image to the viewport*/
     background-repeat: no-repeat; /*Do not repeat the background image*/
     background-size: cover;  /*scale the background image to cover the whole screen*/
+    background-color: black;
+    height: 100vh;
 }
 
 /*Header element selector*/
