@@ -29,7 +29,6 @@ header {
 
 /*character class*/
 .character {
-    /* height: 150px; */
     width: 150px;
     margin: 5px;
     border: 1px yellow solid;
