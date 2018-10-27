@@ -4,7 +4,8 @@ var attackButton = $("#attackButton");
 var battleSectionDiv = $(".battleSection");
 var enemySelectionSectionDiv = $(".enemySelectionSection");
 var selectCharacterSectionDiv = $(".selectCharacter");
-var winAudio = document.getElementById("winAudio");
+var winAudio = $("#winAudio");
+var attackAudio = $("#attackAudio");
 
 var yourCharacter = {
     health: 0,
@@ -101,9 +102,11 @@ function restart () {
     resultsDiv.text("");
 
     //Pause the win audio
-    winAudio.pause(); 
+    winAudio[0].pause(); 
     //Set the current time on the win audio back to 0 so if the user wins again the audio plays from the beginning. 
-    winAudio.currentTime = 0; 
+    winAudio[0].currentTime = 0; 
+    //Pause the attack audio
+    attackAudio[0].pause();
 
     //Loop through all the characters
     $(".character").each(function() {
@@ -131,6 +134,10 @@ function resetAllCharactersHealthOnScreen() {
 
 //Function to be run when the user attacks an enemy
 function attack() {
+
+    //Play attack audio
+    attackAudio[0].currentTime = 0;
+    attackAudio[0].play();
 
     //Display to the user how many health points they attacked for 
     //and how much the enemy/defender counter attacked their character for. 
@@ -185,8 +192,10 @@ function playerDefeatedEnemy() {
     if (undefeatedEnemies.length <= 0) {
         //Display to the user that they won
         resultsDiv.text("You Won!! Game Over!!");
+        //Stop the attack audio
+        attackAudio[0].pause();
         //Play win audio
-        winAudio.play();
+        winAudio[0].play();
     }
     //There are still enemies to be defeated
     else {
